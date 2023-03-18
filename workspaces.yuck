@@ -26,29 +26,25 @@
 
 (defwidget workspaces [ws ows]
   (box
+    :class "workspaces-box"
     :height "5px"
     :orientation "horizontal"
     ; :height "50%"
-    :halign "center"
+    :halign "start"
     (for entry in workspaces_list
       (button
-        :valign "center"
-        :halign "center"
+        :valign "start"
+        :halign "baseline"
         :vexpand "false"
         :hexpand "false"
-        ; :height "1"
-        ; :width "1"
         :class {
-        ; 1. IF in OWS AND ws == entry, apply workspace-occupied-active
-        ; 2. else if ws == entry, apply workspace-active
-        ; 3. else if in OWS, apply workspace-occupied
-        matches(ows, entry) && ws == entry ? 'workspace-occupied-active' :
+        ; 1. if ws == entry, apply workspace-active
+        ; 2. else if in OWS, apply workspace-occupied
         ws == entry ? 'workspace-active' :
         matches(ows, entry) ? 'workspace-occupied' :
         'workspace-inactive'
         }
-        
-        :onclick `bspc desktop -f ${entry}` `${entry}`
+        :onclick `bspc desktop -f ${entry}`
       )
     )
   )

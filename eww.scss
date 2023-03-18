@@ -30,44 +30,48 @@ $Crust: #181926;
   background-color: $Base;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
 // Workspaces
+.workspaces-box {
+  margin-left: 5px;
+}
 
 .workspace-active {
   color: $Crust; // Text color
   border: none;
   background: $Blue;
-  border-radius: 0px;
-  border-bottom: $Blue 2px solid;
-  min-height: 0px;
-  min-width: 0px;
+  min-height: 10px;
+  min-width: 10px;
+  border-radius: 50%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 2px;
 }
 
 .workspace-inactive {
   color: $Teal; // Text color
   border: none;
   background: $Mantle;
-  border-bottom: $Mantle 2px solid;
-  border-radius: 0px;
-  min-height: 0px;
-  min-width: 0px;
+  min-height: 10px;
+  min-width: 10px;
+  border-radius: 50%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 2px;
 }
 
 .workspace-occupied {
   color: $Teal; // Text color
   border: none;
-  border-bottom: $Green 2px solid;
-  background: $Mantle;
-  border-radius: 0px;
-  min-height: 0px;
-  min-width: 0px;
-}
-
-.workspace-occupied-active {
-  color: $Crust; // Text color
-  border: none;
-  border-bottom: $Green 2px solid;
-  background: $Blue;
-  border-radius: 0px;
-  min-height: 0px;
-  min-width: 0px;
+  background: $Green;
+  min-height: 10px;
+  min-width: 10px;
+  border-radius: 50%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 2px;
 }
