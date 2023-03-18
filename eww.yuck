@@ -1,3 +1,5 @@
+(include "./workspaces.yuck")
+
 (defwindow bar
   :monitor 0
   :geometry (geometry :x "0%"
@@ -39,68 +41,6 @@
     (time)
   )
 )
-
-(defpoll workspaces_list :interval "60s"
-  :initial `N/A`
-  `bspc query --names --desktops | jq -R '[.]' | jq -s -c 'add'`
-)
-
-(
-  deflisten current_workspace
-  :initial "1"
-  `xprop -spy -root _NET_CURRENT_DESKTOP | while read change;
-  do
-  echo $(bspc query -D -d focused --names)
-  done
-  `
-)
-
-(
-  deflisten occupied_workspaces
-  :initial "[]"
-  `xprop -spy -root _NET_ACTIVE_WINDOW | while read change;
-  do
-  echo $(bspc query -D -d .occupied --names | jq -R '[.]' | jq -s -c 'add')
-  done
-  `
-)
-
-(defwidget workspaces [ws ows]
-  (box
-    :height "5px"
-    :orientation "horizontal"
-    ; :height "50%"
-    :halign "center"
-    (for entry in workspaces_list
-      (button
-        :valign "center"
-        :halign "center"
-        :vexpand "false"
-        :hexpand "false"
-        ; :height "1"
-        ; :width "1"
-        :class {
-        ; 1. IF in OWS AND ws == entry, apply workspace-occupied-active
-        ; 2. else if ws == entry, apply workspace-active
-        ; 3. else if in OWS, apply workspace-occupied
-        matches(ows, entry) && ws == entry ? 'workspace-occupied-active' :
-        ws == entry ? 'workspace-active' :
-        matches(ows, entry) ? 'workspace-occupied' :
-        'workspace-inactive'
-        }
-        
-        :onclick `bspc desktop -f ${entry}` `${entry}`
-      )
-    )
-  )
-)
-
-(defwidget workspaces_test []
-  (box :orientation "horizontal"
-    :halign "center"
-    :height "5px"
-    (label :text workspaces_list)
-    (label :text time)))
 
 (defpoll time :interval "1s"
   :initial "initial-value"
