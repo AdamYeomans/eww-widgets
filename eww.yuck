@@ -50,8 +50,11 @@
 
 (defwidget time []
   (box :orientation "horizontal"
-    :halign "end"
-    (label :text time)
+    :class "time-box"
+    :halign "center"
+    (label :text time
+      :class "time-label"
+    )
   )
 )
 
