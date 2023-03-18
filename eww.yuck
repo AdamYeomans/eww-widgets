@@ -22,7 +22,7 @@
   (box :orientation "horizontal"
     :halign "start"
     :height "5px"
-    (label :text "left")
+    (workspaces :ws current_workspace :ows occupied_workspaces)
   )
 )
 
@@ -30,7 +30,7 @@
   (box :orientation "horizontal"
     :halign "center"
     :height "5px"
-    (workspaces :ws current_workspace :ows occupied_workspaces)
+    (time)
   )
 )
 
@@ -38,7 +38,7 @@
   (box :orientation "horizontal"
     :halign "end"
     :height "5px"
-    (time)
+    (label :text "right")
   )
 )
 
