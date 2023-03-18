@@ -53,10 +53,3 @@
     )
   )
 )
-
-(defwidget workspaces_test []
-  (box :orientation "horizontal"
-    :halign "center"
-    :height "5px"
-    (label :text workspaces_list)
-    (label :text time)))
