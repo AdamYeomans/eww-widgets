@@ -88,3 +88,21 @@ $Crust: #181926;
 }
 
 // Time and Date
+
+// Circular Progress
+// .circular-progress {
+//   min-width: 50px;
+//   min-height: 50px;
+// }
+
+.cpu-progress {
+  color: $Red;
+}
+
+.ram-progress {
+  color: $Blue;
+}
+
+.battery-progress {
+  color: $Green;
+}

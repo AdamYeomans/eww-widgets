@@ -47,21 +47,39 @@
 (defwidget cpu []
   (box :orientation "horizontal"
     :class "info-box"
-    (label :text "CPU: ${round(EWW_CPU.avg, 0)}%")
+    ; (label :text "CPU: ${round(EWW_CPU.avg, 0)}%")
+    
+    (circular-progress
+      :class "circular-progress cpu-progress"
+      :value "${round(EWW_CPU.avg, 0)}"
+      :thickness "6"
+    )
   )
 )
 
 (defwidget ram []
   (box :orientation "horizontal"
     :class "info-box"
-    (label :text "RAM: ${round(EWW_RAM.used_mem_perc, 0)}%")
+    ; (label :text "RAM: ${round(EWW_RAM.used_mem_perc, 0)}%")
+    
+    (circular-progress
+      :class "circular-progress ram-progress"
+      :value "${round(EWW_RAM.used_mem_perc, 0)}"
+      :thickness "6"
+    )
   )
 )
 
 (defwidget battery []
   (box :orientation "horizontal"
     :class "info-box"
-    (label :text "BAT: ${EWW_BATTERY.BAT1.capacity}% ${EWW_BATTERY.BAT1.status}")
+    ; (label :text "BAT: ${EWW_BATTERY.BAT1.capacity}% ${EWW_BATTERY.BAT1.status}")
+    
+    (circular-progress
+      :class "circular-progress battery-progress"
+      :value "${EWW_BATTERY.BAT1.capacity}"
+      :thickness "6"
+    )
   )
 )
 
