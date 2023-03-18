@@ -37,9 +37,30 @@
 (defwidget rightBar []
   (box :orientation "horizontal"
     :halign "end"
-    :height "5px"
+    :space-evenly false
+    (cpu)
+    (ram)
+    (battery)
+  )
+)
+
+(defwidget cpu []
+  (box :orientation "horizontal"
+    :class "info-box"
     (label :text "CPU: ${round(EWW_CPU.avg, 0)}%")
+  )
+)
+
+(defwidget ram []
+  (box :orientation "horizontal"
+    :class "info-box"
     (label :text "RAM: ${round(EWW_RAM.used_mem_perc, 0)}%")
+  )
+)
+
+(defwidget battery []
+  (box :orientation "horizontal"
+    :class "info-box"
     (label :text "BAT: ${EWW_BATTERY.BAT1.capacity}% ${EWW_BATTERY.BAT1.status}")
   )
 )
@@ -50,11 +71,9 @@
 
 (defwidget time []
   (box :orientation "horizontal"
-    :class "time-box"
+    :class "info-box"
     :halign "center"
-    (label :text time
-      :class "time-label"
-    )
+    (label :text time)
   )
 )
 
