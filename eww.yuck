@@ -38,7 +38,9 @@
   (box :orientation "horizontal"
     :halign "end"
     :height "5px"
-    (label :text "right")
+    (label :text "CPU: ${round(EWW_CPU.avg, 0)}%")
+    (label :text "RAM: ${round(EWW_RAM.used_mem_perc, 0)}%")
+    (label :text "BAT: ${EWW_BATTERY.BAT1.capacity}% ${EWW_BATTERY.BAT1.status}")
   )
 )
 
