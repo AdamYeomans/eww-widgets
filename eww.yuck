@@ -44,7 +44,7 @@
 
 (defpoll time :interval "1s"
   :initial "initial-value"
-`date +%H:%M:%S`)
+`date +"%a %b %d - %H:%M:%S"`)
 
 (defwidget time []
   (box :orientation "horizontal"
